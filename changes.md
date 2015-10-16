@@ -29,7 +29,7 @@
 |		v0.4.3.0023			|	Feb 21, 2015	|	Fixed menu not closing after pressing copy buttons																				|
 |		v0.4.3.0024			|	Feb 21, 2015	|	Added video element source download button																						|
 |		v0.4.3.0025			|	Feb 21, 2015	|	Added link download button																										|
-|		v0.4.3.0026			|	Feb 21, 2015	|	Fixed scroll to position function (__stp__)																						|
+|		v0.4.3.0026			|	Feb 21, 2015	|	Fixed scroll to position function (\_\_stp\_\_)																						|
 |		v0.4.3.0027			|	Feb 21, 2015	|	Removed download buttons on Firefox (due to non-supporting behavior of CORS download attributes)								|
 |		v0.4.3.0028			|	Feb 22, 2015	|	Fixed script set options bottom border not working																				|
 |		v0.4.3.0029			|	Feb 22, 2015	|	Fixed script options not working when isOpen																					|
