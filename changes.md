@@ -41,3 +41,4 @@ v0.4.3.0034			|	Feb 23, 2015	|	Removed anchor element new window option (does no
 v0.4.3.0035			|	Oct 16, 2015	|	Properly removed aforementioned option
 v0.4.3.0036			|	Oct 16, 2015	|	Fixed changelog address
 v0.4.3.0037			|	Oct 16, 2015	|	Fixed .swf relative link
+v0.4.3.0038			|	Oct 16, 2015	|	Fixed changelog address

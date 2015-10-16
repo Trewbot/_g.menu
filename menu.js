@@ -128,7 +128,7 @@ _g.m = (_g.menu = {
 		}
 		
 		//	Dev Options
-		c.innerHTML += '<a href="' + (_g.cm ? 'https://github.com/Trewbot/_g.menu/blob/master/' : _g.url + '/changes') + '" onclick="_g.m.close();"><div class="context-disabled"><i>' + (_g.cm ? 'Context Menu' : 'Graphene') + ' ' + _g.v + '</i></div></a>';
+		c.innerHTML += '<a href="' + (_g.cm ? 'https://github.com/Trewbot/_g.menu/blob/master/changes.md' : _g.url + '/changes') + '" onclick="_g.m.close();"><div class="context-disabled"><i>' + (_g.cm ? 'Context Menu' : 'Graphene') + ' ' + _g.v + '</i></div></a>';
 
 		//	Append Element
 		c.style.opacity = 0;
