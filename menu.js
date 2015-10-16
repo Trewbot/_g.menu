@@ -152,10 +152,10 @@ _g.m = (_g.menu = {
 		return false;
 	},
 	close : function(){
-		if (this.isOpen) {
+		if(this.isOpen){
 			this.isOpen = false;
 			document.getElementById('context').remove();
-		}.
+		}
 	},
 	copy : function(elementID,text){
 		swfobject.embedSWF('http://scripts.phene.co/menu/include/copy.swf', elementID, "200", "21", "0.0.1", false, {cBoard:text}, {wMode:'transparent'}, {}, function(e){
