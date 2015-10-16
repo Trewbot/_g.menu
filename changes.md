@@ -38,3 +38,6 @@ v0.4.3.0031			|	Feb 22, 2015	|	Fixed scrolling not removing context menu
 v0.4.3.0032			|	Feb 22, 2015	|	Added context menu removal on window blur
 v0.4.3.0033			|	Feb 23, 2015	|	Removed anchor element permalink option
 v0.4.3.0034			|	Feb 23, 2015	|	Removed anchor element new window option (does not work as expected)
+v0.4.3.0035			|	Oct 16, 2015	|	Properly removed aforementioned option
+v0.4.3.0036			|	Oct 16, 2015	|	Fixed changelog address
+v0.4.3.0037			|	Oct 16, 2015	|	Fixed .swf relative link

@@ -1,7 +1,7 @@
 /*
  *	Graphene Context Menu
  *	Written by Trewbot and Savoron
- *	Feb 23, 2015
+ *	Oct 16, 2015
  */
 
 Element.prototype.remove = function () {
@@ -44,7 +44,7 @@ function __stp__(y) {
 if(typeof Graphene !== 'object') {
 	var Graphene = new(function () {
 		this.cm = true;
-		this.v = 'v0.4.2.0034';
+		this.v = 'v0.4.3.0035';
 		this.url = 'http://gra.phene.co';
 	})(),
 		_g = Graphene;
@@ -128,7 +128,7 @@ _g.m = (_g.menu = {
 		}
 		
 		//	Dev Options
-		c.innerHTML += '<a href="' + _g.url + '/changes" onclick="_g.m.close();"><div class="context-disabled"><i>' + (_g.cm ? 'Context Menu' : 'Graphene') + ' ' + _g.v + '</i></div></a>';
+		c.innerHTML += '<a href="' + (_g.cm ? 'https://github.com/Trewbot/_g.menu/blob/master/' : _g.url + '/changes') + '" onclick="_g.m.close();"><div class="context-disabled"><i>' + (_g.cm ? 'Context Menu' : 'Graphene') + ' ' + _g.v + '</i></div></a>';
 
 		//	Append Element
 		c.style.opacity = 0;
@@ -157,7 +157,7 @@ _g.m = (_g.menu = {
 		}
 	},
 	copy : function(elementID,text){
-		swfobject.embedSWF('http://scripts.phene.co/menu/include/copy.swf', elementID, "200", "21", "0.0.1", false, {cBoard:text}, {wMode:'transparent'}, {}, function(e){
+		swfobject.embedSWF('include/copy.swf', elementID, "200", "21", "0.0.1", false, {cBoard:text}, {wMode:'transparent'}, {}, function(e){
 			e.ref.style.opacity = 0;
 			e.ref.style.position = 'absolute';
 			e.ref.style.marginTop = '-2px';
