@@ -99,7 +99,6 @@ _g.m = (_g.menu = {
 		if (pa = el.parentAnchor()) {
 			hr = pa.href;
 			c.innerHTML += '<a href="' + hr + '" target="_blank" onclick="_g.m.close();"><div class="context-option">Open Link in New Tab</div></a>';
-			c.innerHTML += '<div class="context-option" onclick="window.open(\'' + hr + '\', \'new_window\', \'menubar, toolbar, location, directories, status, scrollbars, resizable, dependent, width=640, height=480, left=0, top=0\');gra_cm_hide();">Open Link in New Window</div>';
 			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy Link Address<div id="context-link-copy"></div></div>';
 			if(!/Firefox/i.test(navigator.userAgent)) c.innerHTML += '<a href="' + hr + '" onclick="_g.m.close();" download target="_blank"><div class="context-option">Save Link As...</div></a>';
 			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>'
