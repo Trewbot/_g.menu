@@ -44,3 +44,4 @@ v0.4.3.0037			|	Oct 16, 2015	|	Fixed .swf relative link
 v0.4.3.0038			|	Oct 16, 2015	|	Fixed changelog address
 m0.4.3.0039			|	Oct 16, 2015	|	Changed version scheme to mX.X.X.XXXX
 m0.4.3.0040			|	Mar 17, 2016	|	Removed navigation options when other options available
+m0.4.3.0041			|	Mar 17, 2016	|	Switched to clipboard.js from flash

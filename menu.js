@@ -57,6 +57,10 @@ __cms__.innerHTML	+= '.context-option:hover	{background:#f8f8f8;}';
 __cms__.innerHTML	+= '.context-disabled {cursor:pointer;padding:3px 15px;color:#aaa;}';
 document.documentElement.appendChild(__cms__);
 
+__cms__ = document.createElement("script");
+__cms__.src = "https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.8/dist/clipboard.min.js";
+document.documentElement.appendChild(__cms__);
+
 _g.m = (_g.menu = {
 	isOpen : false,
 	open : function (e, o) {
@@ -88,7 +92,7 @@ _g.m = (_g.menu = {
 		if (pa = el.parentAnchor()) {
 			hr = pa.href;
 			c.innerHTML += '<a href="' + hr + '" target="_blank" onclick="_g.m.close();"><div class="context-option">Open Link in New Tab</div></a>';
-			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy Link Address<div id="context-link-copy"></div></div>';
+			c.innerHTML += '<div class="context-option context-copy" onclick="_g.m.close();" data-clipboard-text="' + (hr!=''?hr:location.href) + '">Copy Link Address</div>';
 			if(!/Firefox/i.test(navigator.userAgent)) c.innerHTML += '<a href="' + hr + '" onclick="_g.m.close();" download target="_blank"><div class="context-option">Save Link As...</div></a>';
 			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
 			d = !1;
@@ -97,7 +101,7 @@ _g.m = (_g.menu = {
 		//	Selected Text Options
 		var text = typeof window.getSelection !== "undefined" ? window.getSelection().toString() : (typeof document.selection != "undefined" && document.selection.type == "Text") ? document.selection.createRange().text : "";
 		if(text !== '') {
-			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy<div id="context-copy"></div></div>';
+			c.innerHTML += '<div class="context-option context-copy" onclick="_g.m.close();" data-clipboard-text="' + text + '">Copy</div>';
 			c.innerHTML += '<a href="https://www.google.com/search?q=' + encodeURIComponent(text) + '" target="_blank" onclick="_g.m.close();"><div class="context-option">Search Google for "' + (text.length > 16 ? text.substring(0,15) + '...' : text) + '"</div></a>';
 			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
 			d = !1;
@@ -115,7 +119,7 @@ _g.m = (_g.menu = {
 		if(e.target.tagName === 'VIDEO'){
 			c.innerHTML += '<div class="context-option" onclick="window._g_ctx_te.p' + (e.target.paused ? 'lay' : 'ause') + '();_g.m.close();">' + (e.target.paused ? 'Play' : 'Pause') + '</div>';
 			c.innerHTML += '<div class="context-option" onclick="window._g_ctx_te.muted = !window._g_ctx_te.muted;_g.m.close();">' + (e.target.muted ? 'Unmute' : 'Mute') + '</div>';
-			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy Video Source<div id="context-video-copy"></div></div>';
+			c.innerHTML += '<div class="context-option context-copy" onclick="_g.m.close();" data-clipboard-text="' + e.target.src + '">Copy Video Source</div>';
 			if(!/Firefox/i.test(navigator.userAgent)) c.innerHTML += '<a href="' + e.target.src + '" onclick="_g.m.close();" download target="_blank"><div class="context-option">Save Video As...</div></a>';
 			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
 			d = !1;
@@ -144,9 +148,7 @@ _g.m = (_g.menu = {
 		document.body.appendChild(c);
 		
 		//	Copy Button
-		if(text !== '') _g.m.copy('context-copy',text);
-		if(hr !== false) _g.m.copy('context-link-copy',hr!=''?hr:location.href);
-		if(e.target.tagName === 'VIDEO') _g.m.copy('context-video-copy',e.target.src);
+		new Clipboard('.context-copy');
 		
 		//	Position/Show the Element
 		var r	= c.getBoundingClientRect(),
