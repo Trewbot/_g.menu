@@ -1,7 +1,7 @@
 /*
  *	Graphene Context Menu
- *	Written by Trewbot and Savoron
- *	Oct 16, 2015
+ *	Written by Trevor J Hoglund and Savoron
+ *	Mar 17, 2016
  */
 
 Element.prototype.remove = function () {
@@ -73,6 +73,7 @@ _g.m = (_g.menu = {
 			iw = window.innerWidth,
 			my = e.pageY - sy,
 			mx = e.pageX - sx;
+			d = !0;
 		window._g_ctx_te = e.target;
 		
 		//	Create the Element
@@ -80,18 +81,6 @@ _g.m = (_g.menu = {
 		c.id				= 'context';
 		c.style.position	= 'fixed';
 		c.style.zIndex		= '9999999';
-
-		//	Default Options
-		var dops = {
-			Back			: 'history.back()',
-			Reload			: 'location.reload()',
-			Forward			: 'history.forward()',
-			"Scroll to Top"	: (sy > window.innerHeight / 2) ? '__stp__(0)' : ''
-		};
-		for (var op in dops)
-			c.innerHTML += dops[op] !== '' ? '<div class="context-option" onclick="' + dops[op] + ';_g.m.close();">' + op + '</div>' : '<div class="context-disabled">' + op + '</div>';
-		c.innerHTML += '<a href="view-source:' + window.location + '" target="_blank" onclick="_g.m.close();"><div class="context-option">View Source</div></a>';
-		c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>'
 
 		//	Link Options
 		var el = e.target,
@@ -101,7 +90,8 @@ _g.m = (_g.menu = {
 			c.innerHTML += '<a href="' + hr + '" target="_blank" onclick="_g.m.close();"><div class="context-option">Open Link in New Tab</div></a>';
 			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy Link Address<div id="context-link-copy"></div></div>';
 			if(!/Firefox/i.test(navigator.userAgent)) c.innerHTML += '<a href="' + hr + '" onclick="_g.m.close();" download target="_blank"><div class="context-option">Save Link As...</div></a>';
-			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>'
+			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
+			d = !1;
 		}
 		
 		//	Selected Text Options
@@ -109,14 +99,17 @@ _g.m = (_g.menu = {
 		if(text !== '') {
 			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy<div id="context-copy"></div></div>';
 			c.innerHTML += '<a href="https://www.google.com/search?q=' + encodeURIComponent(text) + '" target="_blank" onclick="_g.m.close();"><div class="context-option">Search Google for "' + (text.length > 16 ? text.substring(0,15) + '...' : text) + '"</div></a>';
-			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>'
+			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
+			d = !1;
 		}
 		
 		//	Script Set Options
 		for(var op in o)
 			c.innerHTML += o[op] !== '' ? '<div class="context-option" onclick="' + o[op] + ';_g.m.close();">' + op + '</div>' : '<div class="context-disabled">' + op + '</div>';
-		if(objectSize(o) > 0)
+		if(objectSize(o) > 0){
 			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
+			d = !1;
+		}
 
 		//	Video Options
 		if(e.target.tagName === 'VIDEO'){
@@ -125,6 +118,21 @@ _g.m = (_g.menu = {
 			c.innerHTML += '<div class="context-option" onclick="_g.m.close();">Copy Video Source<div id="context-video-copy"></div></div>';
 			if(!/Firefox/i.test(navigator.userAgent)) c.innerHTML += '<a href="' + e.target.src + '" onclick="_g.m.close();" download target="_blank"><div class="context-option">Save Video As...</div></a>';
 			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>';
+			d = !1;
+		}
+		
+		//	Default Options
+		if(d){
+			var dops = {
+				Back			: 'history.back()',
+				Reload			: 'location.reload()',
+				Forward			: 'history.forward()',
+				"Scroll to Top"	: (sy > window.innerHeight / 2) ? '__stp__(0)' : ''
+			};
+			for (var op in dops)
+				c.innerHTML += dops[op] !== '' ? '<div class="context-option" onclick="' + dops[op] + ';_g.m.close();">' + op + '</div>' : '<div class="context-disabled">' + op + '</div>';
+			c.innerHTML += '<a href="view-source:' + window.location + '" target="_blank" onclick="_g.m.close();"><div class="context-option">View Source</div></a>';
+			c.innerHTML += '<div style="margin:2px 4px;height:1px;background:#ddd;"></div>'
 		}
 		
 		//	Dev Options
