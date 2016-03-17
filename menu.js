@@ -139,7 +139,7 @@ _g.m = (_g.menu = {
 		}
 		
 		//	Dev Options
-		c.innerHTML += '<a target="_blank" href="' + (_g.cm ? 'http://gra.phene.co/changes/_g.menu' : _g.url + '/changes') + '" onclick="_g.m.close();"><div class="context-disabled"><i>' + (_g.cm ? 'Context Menu' : 'Graphene') + ' ' + _g.v + '</i></div></a>';
+		c.innerHTML += '<a href="' + (_g.cm ? 'http://gra.phene.co/changes/_g.menu' : _g.url + '/changes') + '" onclick="_g.m.close();"><div class="context-disabled"><i>' + (_g.cm ? 'Context Menu' : 'Graphene') + ' ' + _g.v + '</i></div></a>';
 
 		//	Append Element
 		c.style.opacity = 0;
@@ -219,7 +219,8 @@ _g.m = (_g.menu = {
 		["m0.4.3.0039","Oct 16, 2015","Changed version scheme to mX.X.X.XXXX"],
 		["m0.4.3.0040","Mar 17, 2016","Removed navigation options when other options available"],
 		["m0.4.3.0041","Mar 17, 2016","Switched to clipboard.js from flash"],
-		["m0.4.3.0042","Mar 17, 2016","Added changelog as array to script"]
+		["m0.4.3.0042","Mar 17, 2016","Added changelog as array to script"],
+		["m0.4.3.0043","Mar 17, 2016","Removed _blank target from version link, turns out that's annoying."]
 	]
 });
 
