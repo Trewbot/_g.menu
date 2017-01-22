@@ -1,7 +1,7 @@
 /*
  *	Graphene Context Menu
  *	Written by Trevor J Hoglund and Savoron
- *	Mar 17, 2016
+ *	2017.01.21
  */
 
 Element.prototype.remove = function () {
@@ -49,16 +49,16 @@ if(typeof Graphene !== 'object') {
 		_g = Graphene;
 }
 
-var __cms__ = document.createElement("style");
-__cms__.innerHTML	 = '#context {background:#fff;box-shadow:rgba(50, 50, 50, 0.3) 0 0 3px;width:200px;padding:2px;}';
-__cms__.innerHTML	+= '.context-option {cursor:pointer;padding:3px 15px;color:#111 !important;}';
-__cms__.innerHTML	+= '.context-option:hover	{background:#f8f8f8;}';
-__cms__.innerHTML	+= '.context-disabled {cursor:pointer;padding:3px 15px;color:#aaa;}';
-document.documentElement.appendChild(__cms__);
+(CTX_MENU_STYLE = document.createElement("style")).innerHTML
+	= '#context {background:#fff;box-shadow:rgba(50, 50, 50, 0.3) 0 0 3px;width:200px;padding:2px;}'
+	+ '.context-option {cursor:pointer;padding:3px 15px;color:#111 !important;}'
+	+ '.context-option:hover {background:#f8f8f8;}'
+	+ '.context-disabled {cursor:pointer;padding:3px 15px;color:#aaa;}';
+document.documentElement.appendChild(CTX_MENU_STYLE);
 
-__cms__ = document.createElement("script");
-__cms__.src = "https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.8/dist/clipboard.min.js";
-document.documentElement.appendChild(__cms__);
+(CTX_MENU_DEP = document.createElement("script")).src
+	= "https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.8/dist/clipboard.min.js";
+document.documentElement.appendChild(CTX_MENU_DEP);
 
 _g.m = (_g.menu = {
 	isOpen : false,
@@ -220,7 +220,8 @@ _g.m = (_g.menu = {
 		["m0.4.3.0040","Mar 17, 2016","Removed navigation options when other options available"],
 		["m0.4.3.0041","Mar 17, 2016","Switched to clipboard.js from flash"],
 		["m0.4.3.0042","Mar 17, 2016","Added changelog as array to script"],
-		["m0.4.3.0043","Mar 17, 2016","Removed _blank target from version link, turns out that's annoying."]
+		["m0.4.3.0043","Mar 17, 2016","Removed _blank target from version link, turns out that's annoying."],
+		["m0.4.3.0044","Jan 21, 2017","Refactoring"]
 	]
 });
 
