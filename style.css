@@ -18,8 +18,5 @@ blockquote				{margin-bottom:10px;padding-left:9px;border-left:1px solid #555;}
 :target					{margin-left:-10px;padding-left:9px;border-left:1px solid #555;}
 span					{color:#aaa;}
 
-.content				{width:300px;text-align:justify;margin-left:auto;margin-right:auto;margin-top:calc(50vh - 100px);margin-bottom:40px;}
-
-.civ-img-600,
-.civ-img-500			{width:500px;height:500px;background:#f8f8f8;margin-left:-100px;margin-bottom:10px;}
-.civ-div-600			{width:500px;margin-left:-100px;margin-bottom:10px;}
+.content				{width:300px;text-align:justify;margin-left:auto;margin-right:auto;margin-top:calc(50vh - 100px);margin-bottom:40px;transition:filter 0.3s;-moz-transition:filter 0.3s;-webkit-transition:filter 0.3s;}
+.content.is-blurred		{filter:blur(3px);}

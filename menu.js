@@ -62,6 +62,8 @@ document.documentElement.appendChild(CTX_MENU_DEP);
 
 _g.m = (_g.menu = {
 	isOpen : false,
+	onOpen : function(){},
+	onClose : function(){},
 	open : function (e, o) {
 		//	Do important stuff
 		if (_g.m.isOpen)
@@ -157,12 +159,15 @@ _g.m = (_g.menu = {
 		c.style.left	= ((iw > cw && mx + cw > iw) ? iw - cw : (iw <= cw) ? 0 : mx) + 'px';
 		c.style.opacity	= 1;
 
+		_g.m.onOpen();
+		
 		return false;
 	},
 	close : function(){
 		if(this.isOpen){
 			this.isOpen = false;
 			document.getElementById('context').remove();
+			_g.m.onClose();
 		}
 	},
 	copy : function(elementID,text){
@@ -222,7 +227,8 @@ _g.m = (_g.menu = {
 		["m0.4.3.0042","Mar 17, 2016","Added changelog as array to script"],
 		["m0.4.3.0043","Mar 17, 2016","Removed _blank target from version link, turns out that's annoying."],
 		["m0.4.3.0044","Jan 21, 2017","Refactoring"],
-		["m0.4.3.0045","Jan 21, 2017","Added material design shadow."]
+		["m0.4.3.0045","Jan 21, 2017","Added material design shadow."],
+		["m0.4.3.0046","Jan 21, 2017","Added callback function handling."]
 	]
 });
 

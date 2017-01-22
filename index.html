@@ -22,10 +22,10 @@
 			<b><a href="#start">getting started</a></b><hr>
 			<p>
 				to begin using the menu script, one must first include the library in the html file.
-				<a target="_blank" href="http://scripts.phene.co/menu/0.4.3.0043">the source file can be downloaded here and put on a cdn</a>
+				<a target="_blank" href="http://scripts.phene.co/menu/0.4.3.0046">the source file can be downloaded here and put on a cdn</a>
 				or use the following script tag to include it directly from phene.co:
 			</p>
-			<pre><code class="language-markup">&lt;script src="http://scripts.phene.co/menu/0.4.3.0043"&gt;&lt;/script&gt;</code></pre>
+			<pre><code class="language-markup">&lt;script src="http://scripts.phene.co/menu/0.4.3.0046"&gt;&lt;/script&gt;</code></pre>
 			<p>
 				the inclusion of this script will immediately begin to override the browser&apos;s context menu without further implementation.
 			</p>
@@ -48,6 +48,31 @@
 				here is a video on which you can test these features:
 			</p>
 			<video src="afraid.webm" controls style="height:auto;width:500px;margin-left:-100px;"></video>
+		</div>
+		<br><br>
+		<br><br>
+		<div id="next">
+			<b><a href="#next">adding callback functions</a></b><hr>
+			<p>
+				to add more fluidity between the context menu and the page, callback functions can be added to both <code>_g.open()</code> and <code>_g.close()</code>.
+				for <code>_g.open()</code>, the callback function is stored as <code>_g.m.onOpen()</code>, and for <code>_g.close()</code> it is <code>_g.m.onClose()</code>.
+				<script>
+					window.effectOn = function(){
+						_g.m.onOpen = function(){
+							document.getElementsByClassName('content')[0].className = 'content is-blurred';
+						}
+						_g.m.onClose = function(){
+							document.getElementsByClassName('content is-blurred')[0].className = 'content';
+						}
+					}
+					window.effectOff = function(){
+						_g.m.onOpen = function(){}
+						_g.m.onClose = function(){}
+					}
+				</script>
+				as an example, the content of the page can be blurred using <code>filter:blur</code> when opening the context menu and unblur when closing.
+				this can be seen by toggling this example <a href="javascript:effectOn();">ON</a> and <a href="javascript:effectOff();">OFF</a>.
+			</p>
 		</div>
 		
 		<br><br>
