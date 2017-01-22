@@ -50,7 +50,7 @@ if(typeof Graphene !== 'object') {
 }
 
 (CTX_MENU_STYLE = document.createElement("style")).innerHTML
-	= '#context {background:#fff;box-shadow:rgba(50, 50, 50, 0.3) 0 0 3px;width:200px;padding:2px;}'
+	= '#context {background:#fff;box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);;width:200px;padding:2px;}'
 	+ '.context-option {cursor:pointer;padding:3px 15px;color:#111 !important;}'
 	+ '.context-option:hover {background:#f8f8f8;}'
 	+ '.context-disabled {cursor:pointer;padding:3px 15px;color:#aaa;}';
@@ -221,7 +221,8 @@ _g.m = (_g.menu = {
 		["m0.4.3.0041","Mar 17, 2016","Switched to clipboard.js from flash"],
 		["m0.4.3.0042","Mar 17, 2016","Added changelog as array to script"],
 		["m0.4.3.0043","Mar 17, 2016","Removed _blank target from version link, turns out that's annoying."],
-		["m0.4.3.0044","Jan 21, 2017","Refactoring"]
+		["m0.4.3.0044","Jan 21, 2017","Refactoring"],
+		["m0.4.3.0045","Jan 21, 2017","Added material design shadow."]
 	]
 });
 
